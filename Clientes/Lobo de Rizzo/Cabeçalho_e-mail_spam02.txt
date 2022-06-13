@@ -1,0 +1,276 @@
+Received: from FR1P215MB1242.LAMP215.PROD.OUTLOOK.COM (2603:10d6:203:6::14) by
+ CPXP215MB1429.LAMP215.PROD.OUTLOOK.COM with HTTPS; Tue, 3 May 2022 12:00:26
+ +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=aCjfL0Vm6aVnvR0Bo3W/9qTxxtzV55yDzdrsNkvjmCqEfrZr94cIUN4ps5wSJfd3RPG/x8/k249yTRM+R28KupyUwa+RKOkCAC24GJeYK5bd3zDAbjioKUtzswrlW6NpXoUZhYnbl3Onr+Yy3uF3/qjyNTobggOpAAthn8QYpke8LV3hDMYoAA/bi48OdvlSSjCpo3p1KxZT0h1e4ypYeQ5aFTX1chD2kQa4XY4ks2ZixdRiw00oLBaLr+Fb4yYrZA2HagF2XOsnF2chWinkbwzt1J86IgBsaEWtuJSMiJ177jYM0XzmldM0bEgPIt4HS5v0jdaU/msxPs/3FBKsnA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z2BqOSnZaorEv6pN4o9mi+bt00zFIYjD5Eo7IAiJJ/Y=;
+ b=YOiqDTCj0bmh0XkjIToqSb2NxRV+0v8hHxTrcDPgI+mCScolmZmBqCPMxTNqUJK3opk3zVQgZgNH1l9/mz5zP7eb6NCFPjXKG01+OqLfINx8BRXG68+tzJSxbWdXVwa0kEOh7AA0byR6yHlxn+T0YE0pmNev4Gm9LqUfP3ZGK15GSE7qOPmu/x/6Ts7uBdgHTv/HUBa8CxsTrTzoMFVXRnLzCDqnEWIjVlsw5PTKvRHhb3mktQenM8pZfC229MVYVk4xQ1Bpl62izQy4jWf+dtlCUdxhY+1K78EJWogHuZ9V5qvjKqjSCtY5pebchiqhGrRFg1RhvwbVmk4nCMtyrg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 18.208.22.112) smtp.rcpttodomain=ldr.com.br smtp.mailfrom=caixa.gov.br;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=caixa.gov.br; dkim=pass (signature was verified)
+ header.d=caixa.gov.br; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=caixa.gov.br] dkim=[1,1,header.d=caixa.gov.br]
+ dmarc=[1,1,header.from=caixa.gov.br])
+Received: from BN9PR03CA0044.namprd03.prod.outlook.com (2603:10b6:408:fb::19)
+ by FR1P215MB1242.LAMP215.PROD.OUTLOOK.COM (2603:10d6:203:6::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.13; Tue, 3 May
+ 2022 11:59:27 +0000
+Received: from BN1NAM02FT026.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:408:fb:cafe::1e) by BN9PR03CA0044.outlook.office365.com
+ (2603:10b6:408:fb::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5186.23 via Frontend
+ Transport; Tue, 3 May 2022 11:59:26 +0000
+Authentication-Results: spf=fail (sender IP is 18.208.22.112)
+ smtp.mailfrom=caixa.gov.br; dkim=pass (signature was verified)
+ header.d=caixa.gov.br;dmarc=pass action=none
+ header.from=caixa.gov.br;compauth=pass reason=100
+Received-SPF: Fail (protection.outlook.com: domain of caixa.gov.br does not
+ designate 18.208.22.112 as permitted sender) receiver=protection.outlook.com;
+ client-ip=18.208.22.112; helo=inpost.tmes.trendmicro.com;
+Received: from inpost.tmes.trendmicro.com (18.208.22.112) by
+ BN1NAM02FT026.mail.protection.outlook.com (10.13.2.140) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5206.12 via Frontend Transport; Tue, 3 May 2022 11:59:25 +0000
+Received: from 40.107.112.63_.trendmicro.com (unknown [192.168.176.25])
+	by inpost.tmes.trendmicro.com (Postfix) with SMTP id 85BC310000786;
+	Tue,  3 May 2022 11:59:25 +0000 (UTC)
+X-TM-MAIL-RECEIVED-TIME: 1651579161.541000
+X-TM-MAIL-UUID: 2eb36446-caba-4dd8-8028-19b8452233e7
+Received: from BRA01-CPZ-obe.outbound.protection.outlook.com (unknown [40.107.112.63])
+	by inpre01.tmes.trendmicro.com (Trend Micro Email Security) with ESMTPS id 867E11000595A;
+	Tue,  3 May 2022 11:59:21 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=oAAR+mNTBnyWuoA3tb19ntjBri0T4Nxg34qA5OjNPy+tzpTn3VLO5qyNVXtuPXh+9F1KLqL/F+5zrtcHsBwexEY99rK6OVcP6FH00qq9KJESIIn+N7deGbJC2RhWPUDqyZJo7Q/5vc25iSU80E/zg+6sUWyRyJIQV9yH7ut/nnW1Hy94VBlYzTLqgpfaPeFPqL/avudrpz9TJ52FtC9YFrjlHqbWuaULWsyYa5ekf3b1IzR6RfIp0Wpkb/H1bcbifxOfJHhglCPgDDFaUfYx3H83DB1eE1waV2AWGk7O+z+vcaksTytMae+Zqniu1+wN7Izru2WJ1JIRTIGeKlhhFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z2BqOSnZaorEv6pN4o9mi+bt00zFIYjD5Eo7IAiJJ/Y=;
+ b=U3HkXvxYT0O5sWRLf4JytjchpgPhk4zIcDLwU8urcnK53nF/iz+pXXhOuygwmNSQEfpdPof+SYqFshGYJEA9EmrwoOlsWEikFD/mVS3+FZySh9+zrBx6bK4GMd1vIR3bXBpIWzYHH2AD0aRUOXuWXoYtTlNYmyG2qz+zpk84UNhH2Ve4aBADrzDDhlczEntMyk48bsn46zmnzuIT625qPGPQZCo6kojCaJbeBYRekB095bC3FHF6pCHMgMNmm+MvoS3t2bmXvTuyX+GsQaYMLf0dkvUTmW7QzJv42tIjdGJL61ETCkNQSEFWpqA6RRgoc0txAUex/vJ1anuQHkOSMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=caixa.gov.br; dmarc=pass action=none header.from=caixa.gov.br;
+ dkim=pass header.d=caixa.gov.br; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=caixa.gov.br;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z2BqOSnZaorEv6pN4o9mi+bt00zFIYjD5Eo7IAiJJ/Y=;
+ b=Dq4pMCfQtlWz33rQCq0ChMPZ9fwIsI0rYoJEwi+whoPYEC5A7dsZA3CjACqYuOtuIv2tVuJsrGyCi4MlVUr4EAdXu24xE54cxEaP1g2B/PFmJKi9dGzkkJigLMNX9nfO59CplYVfk7NaVa3c0q3T1RoddN7ghTfJFKXdZExtaa8x3D0LRcvxVwfqz/WvCeA5uwOyp40Awz8wJ91GgNYuO6JdCCNWAZAMbLZuk+QedYIUlwc6a8Tf+LjhgEg6bn/RmvQdmWFUaBrTkqdFti9b6Dc8tErohEpzE+Mt98SOfH46PW4zkDlB3JGgBkOOV2rhYLzHl+JaZK2cxS+E1NKrjw==
+Received: from CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM (2603:10d6:103:a3::10)
+ by CPYP284MB0339.BRAP284.PROD.OUTLOOK.COM (2603:10d6:103:76::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5206.13; Tue, 3 May
+ 2022 11:59:05 +0000
+Received: from CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM
+ ([fe80::8081:ae23:530c:2f45]) by CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM
+ ([fe80::8081:ae23:530c:2f45%5]) with mapi id 15.20.5206.024; Tue, 3 May 2022
+ 11:59:04 +0000
+From: Hamilton Aparecido Damasceno <hamilton.damasceno@caixa.gov.br>
+To: Ana Paula da Silva Liberalino <ana.liberalino@ldr.com.br>,
+	=?iso-8859-1?Q?Ana_J=FAlia_Teixeira_Mendes_Lissaraca?=
+	<ana.lissaraca@vivaurba.com.br>, Vanessa Fiche Rivetti
+	<rivetti.vanessa@mrv.com.br>, Thalita Procopio Serpa Leite
+	<thalita.procopio@ldr.com.br>, Camila Souza <CSouza@pentagonotrustee.com.br>,
+	Alberto Angelo Briani Tedesco <alberto.tedesco@caixa.gov.br>, Caroline Silva
+	<csilva@pentagonotrustee.com.br>, Ricardo Paixao Pinto Rodrigues
+	<ricardo.rodrigues@mrv.com.br>, Sandra Ribeiro De Moura
+	<sandra.moura@mrv.com.br>, Augusto Pinto De Moura Andrade
+	<augusto.andrade@mrv.com.br>, Magda Pedroso Costa <magda.costa@mrv.com.br>,
+	=?iso-8859-1?Q?Let=EDcia_Peixoto_Antunes?= <leticia.antunes@mrv.com.br>,
+	Tatiana Nogueira Moreira Oliveira <tatiana.oliveira@mrv.com.br>, Guilherme
+ Silva Freitas <guilherme.sfreitas@mrv.com.br>, Fernanda De Mattos Paixao
+	<fernanda.paixao@mrv.com.br>, Fabiana De Castro Quelotti
+	<fabiana.cquelotti@mrlengenharia.com.br>, Fernando Marcolino Da Silva
+	<fernando.silva@mrlengenharia.com.br>, Rodrigo Madeira Leite
+	<rodrigo.leite@primeconstrucoes.com.br>, Luciano Brina Cambraia
+	<luciano.cambraia@primeconstrucoes.com.br>, Salete Ferreira dos Santos
+	<salete@primeconstrucoes.com.br>, Daniella Ribeiro Gomes Freitas
+	<daniella.ribeiro@primeconstrucoes.com.br>, Luiza Guerra Gomes
+	<luiza.gomes@vivaurba.com.br>, Bianca Batista Martins
+	<bianca.bmartins@vivaurba.com.br>, Bruna Rodrigues de Jesus Oliveira
+	<bruna.jesus@vivaurba.com.br>, Thiago Faria De Souza
+	<thiago.fsouza@vivaurba.com.br>, Marco Antonio Zoli Buzzo
+	<marco.buzzo@caixa.gov.br>, Gustavo de Moraes Fernandes
+	<gustavo.fernandes@caixa.gov.br>, Maite Moreno <maite.moreno@caixa.gov.br>,
+	Rafael Ayala Ferraro <rafael.ferraro@caixa.gov.br>, Alexandre Gomes Vidal
+	<alexandre.vidal@caixa.gov.br>, GEDIV02 - Relacionamento Mercado de Capitais
+	<gediv02@caixa.gov.br>, Leandro Lara Leal <leandro.leal@caixa.gov.br>, Bruno
+ Rodrigo Gobby Ducati <bruno.ducati@caixa.gov.br>, Helena Yumy Hashizume
+	<helena.hashizume@caixa.gov.br>, Alan Renato Braz <alan.braz@caixa.gov.br>,
+	Josiane Mendes Gomes Dias Pinto <josiane.pinto@caixa.gov.br>, "GEAJU05 -
+ Atend. Jurid. a VITER E VIFIC" <geaju05@caixa.gov.br>, Milton Pinatti
+ Ferreira de Souza <milton.pinatti@ldr.com.br>, Amanda Fajnzylber Ammar
+	<amanda.ammar@ldr.com.br>, =?iso-8859-1?Q?Andr=E9_Esses?=
+	<andre.esses@ldr.com.br>, Marcelle Santoro
+	<MSantoro@pentagonotrustee.com.br>, Tatiana Bion
+	<tbion@pentagonotrustee.com.br>, =?iso-8859-1?Q?J=E9ssica_Martins?=
+	<jmartins@pentagonotrustee.com.br>, Williany Berto
+	<wberto@pentagonotrustee.com.br>, Felipe Tenorio
+	<ftenorio@pentagonotrustee.com.br>, Yumi Takahashi
+	<ytakahashi@pentagonotrustee.com.br>, Guilherme Arias
+	<garias@pentagonotrustee.com.br>, Estruturacao - MailGroup
+	<Estruturacao@pentagonotrustee.com.br>,
+	=?iso-8859-1?Q?GEDIV01_-_Estrutura=E7=E3o_de_Deb=EAntures_e_NP?=
+	<gediv01@caixa.gov.br>, Leonardo Calderaro da Graca Caseiro
+	<leonardo.caseiro@caixa.gov.br>
+CC: Milton Pinatti Ferreira de Souza <milton.pinatti@ldr.com.br>, Amanda
+ Fajnzylber Ammar <amanda.ammar@ldr.com.br>, =?iso-8859-1?Q?Andr=E9_Esses?=
+	<andre.esses@ldr.com.br>
+Subject: . RES: .  Debts MRL Prime e Urba | Comunicado de Encerramento
+Thread-Topic: . .  Debts MRL Prime e Urba | Comunicado de Encerramento
+Thread-Index: AdheXkekQ3GmMz0xQEet1zEYHNMDfwAhlOVQ
+Date: Tue, 3 May 2022 11:59:04 +0000
+Message-ID:
+ <CP4P284MB1236C40AD10AFF06232A4E20A1C09@CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM>
+References:
+ <CP4P284MB1236299F9FF2EAFFB64E3785A1C19@CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM>
+In-Reply-To:
+ <CP4P284MB1236299F9FF2EAFFB64E3785A1C19@CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM>
+Accept-Language: pt-BR, en-US
+Content-Language: pt-BR
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+msip_labels: MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_Enabled=true;
+ MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_SetDate=2022-05-03T11:58:45Z;
+ MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_Method=Privileged;
+ MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_Name=#EXTERNO_CONFIDENCIAL;
+ MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_SiteId=ab9bba98-684a-43fb-add8-9c2bebede229;
+ MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_ActionId=598c76f1-3818-4016-a93c-57e59848e0c8;
+ MSIP_Label_f1a47ad8-907a-4afd-bc2a-6b2ee4f96f0c_ContentBits=3
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=caixa.gov.br;
+X-MS-Office365-Filtering-Correlation-Id: b1c1128b-b970-4009-8694-08da2cfc5eb5
+x-ms-traffictypediagnostic:
+ CPYP284MB0339:EE_|BN1NAM02FT026:EE_|FR1P215MB1242:EE_
+X-MS-Exchange-AtpMessageProperties: SA|SL
+x-microsoft-antispam-prvs:
+ <CPYP284MB03393EF519A1DC42CF571591A1C09@CPYP284MB0339.BRAP284.PROD.OUTLOOK.COM>
+tagclassification: #EXTERNO.CONFIDENCIAL
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;
+X-Microsoft-Antispam-Message-Info-Original:
+ 83wOoY/48Yuf8R2nt4XMpxeqLqWT1Y5JYLqbdpJQoezUIpfm1gcLye4w497hIZdpyUdackNEl+E50oubrD4sDbyOwCq18dijrBoRDmfLUmCoMzhGep8v2W/dGkspdp5TwurEippzbVOOrtpYFnd6gTuAMUePo2B7bEXIvEN2pL8e+KgOcXq8PK8fUMX4I9lqiPexxcrTBUuTG0NY+V1Rm55D+I7+nSqxgtk1z6pv1fdmG8vykZkAZsczNPF2S3Ab4W4IOJSGJC2Cy7ST/0UgsmUOSZ4poWKB2KPCU3tq9NGbJpN4yPPOnZGa2MsGGLAWBM8meecYgBrWgK+zfIY7tcq1zBz+HfTKxf7sP0URXx8GVE3QRPB/7IGtZ/DQRnV0VD2ANG7pLNfaD6KKOfXcL8l6oqtxn3PJlbpKSjVwXSIaElcP3Hng6RtH+AS5Vtqbw8mc8s0QrPljY5+7L80Fjfqj0gY6lnTI4+wDkR5EyGtzapz9Oe/49ivIo+z0GFaXKViX5OrwAClpa3W1NpV6jxd4bllbKnxwLAvHA9JyVuHnxxHyWMu0LDLGf1W5NpiWZYrB7YNxZIZcDUciCb8EvkR9eMnfnP4EpdOKY3gtRab8n4wTnSn3sV49ICrksEmoD/lDRD0T90SnbeRqoIvDg0Y0SElDGh1tVfmLPmPsm5DEOMeqqAlgzqX04lxqXTNQCsKSjNuiTKsDaTbpcgXf22TAQdKMNUlwwn4opLSFcjEVtwo127ti7B1JjxL+yGE1A5Hpl7UNWM61g6FD/pNQO+bCH0cn8l/p2BD3YAUuRlY=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:pt;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CP4P284MB1236.BRAP284.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230001)(4636009)(366004)(7416002)(7406005)(166002)(8936002)(5660300002)(52536014)(38070700005)(10290500003)(38100700002)(19627235002)(316002)(110136005)(54906003)(6636002)(966005)(71200400001)(8676002)(508600001)(55885007)(66476007)(76116006)(66946007)(66556008)(66446008)(99936003)(26005)(11855715004)(64756008)(4326008)(9686003)(86362001)(7696005)(921005)(122000001)(6506007)(186003)(66574015)(83380400001)(33656002)(2906002)(30864003)(55016003)(559874002)(559001)(579004);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-Original-0:
+ =?iso-8859-1?Q?Ew3Rt7lB781rIki1w6Vovy0/OwjwBUTY4kAfZWcSiz+FusX4oT0Lrl4BS1?=
+ =?iso-8859-1?Q?sV6ipyrwkOFLW99qsaChjYJ/CTUJhn1BCsuSWCJS8JbgLWuvWrc3GS78Ax?=
+ =?iso-8859-1?Q?cX4USth+UqQ+baZbDIErSCah9XR/OuOKPOiUa4LibMooS1oU31RZpFC/vn?=
+ =?iso-8859-1?Q?QbODyky9NWN0hdEoA89DuyyYaYdL+ynA2Ka7DWjoPYhUlRLAVsgsDEU1bd?=
+ =?iso-8859-1?Q?Tgm7lYpnDLWhBP8zINEojU2Rz2ydALzl4ZxmNkAMMfFn2rNYkYVck+tTY0?=
+ =?iso-8859-1?Q?df4YlXUaRmmnUinXb61EDXYxKegbU2bj/3h2EZf2CTKBs+I8XcXfCkagmd?=
+ =?iso-8859-1?Q?yiq+YDrVWIrEw4N3d2LT+MIkqBJBSyYwACFHtQV1Ki/VyzQJGC2ujkHe+Q?=
+ =?iso-8859-1?Q?u59loLlQ34azdIhG8V4ouEI/2m5cvBSUIaUNR8LKqf3EtMynq/EL254EOA?=
+ =?iso-8859-1?Q?otNQnAH527uZqt8IwyzzAHUTwAGVDuy4BS3fV/aSjl/my8ewrP8zFpEfSC?=
+ =?iso-8859-1?Q?roLG5Lo3AUiyotfdbF0hc0bttUubCIzG2JvCTyuC4PTobxZrjBe5a39Li1?=
+ =?iso-8859-1?Q?re8Hm7+hBJ7wEgu7O+AYgHsioKqLDBpjKm+4IxzUw2a4smRXXDs1yzVqt0?=
+ =?iso-8859-1?Q?0yHY7Fk2cJ7Xyap+/5s06tXCt54R9hpQKVCgu8U1M4ncEVRIS3+C2i3qxC?=
+ =?iso-8859-1?Q?53wYbvhoNsNGI94lb9B/XSY8pXISNEnEB1pL1T2kR3kUBAWv+y62NQ2KMN?=
+ =?iso-8859-1?Q?ti50j80CsZZx4GngVnH77CquzWhQqNwMXAJoORNE4z6/ujpdJPybp1ClZq?=
+ =?iso-8859-1?Q?FFXeUUZ3U7UJJ7xZu1qM6gh6USUWu4BKUDFdvZUmHO3naAoejQ7zVstsGP?=
+ =?iso-8859-1?Q?5WsQI02kJiCvetUIJ+G3z1vAGX7+Gn+60J0rMORy2fd2+iLXQUWZdQxa/e?=
+ =?iso-8859-1?Q?/mhzdQ4znFuhPJol/B1baVfFuTUqYTC1zIHERXeIOGteCqrzNzvQ+JelcD?=
+ =?iso-8859-1?Q?36TIH0QRFF6go9oxs77xGBJFlOm0bq+E32foFAbRcejVnlJQJM8XvvLHKr?=
+ =?iso-8859-1?Q?+tVIIOXnI21zmJHz6lpG+77vvDoy4R+DsxgMJHAY+pogeXxc+/SNoWLICO?=
+ =?iso-8859-1?Q?GrSoXAA6i9YHstXBeQ4UMlW2W2P95m30MsxbOl8RASo/gSW1Soi9pfnUMU?=
+ =?iso-8859-1?Q?LK/1fJJ9z3fIfJFjCu5wvTv5BqAX4T7lDfNtOyYGOP9SqZQJmEaipkx7iQ?=
+ =?iso-8859-1?Q?GUyOREm5HIiKxNJrxfV4fB2832VJx+aqYLVRzYZHwnljsGRNztA2CBdKR1?=
+ =?iso-8859-1?Q?rdH8gevQMluUwz9FPK1rv9rk/g1F4Eogkc2fFw7rANt/I/WjkOBp9kdVND?=
+ =?iso-8859-1?Q?Y/8ekH/JUvblv9P8bJHUNHeiY8pUhqvsZM0yQbc0XaETIlm2G1RCjogprp?=
+ =?iso-8859-1?Q?dAeqi4goclNRBSWpYD1DWFKlnFyKIahTo9fU8G+exmZn/f6Ca3rjSteEDa?=
+ =?iso-8859-1?Q?Jynye+5wQiIEovkC0mBE0rEdAHp/jeTCQY9HUhs4hptEGWFNGHvVQzSFGN?=
+ =?iso-8859-1?Q?V+rBQczEHcsYRDkruAnrBK31B+r54Wh1Kf7TaEnwRwvTHhLnxwdCVVkVgB?=
+ =?iso-8859-1?Q?QrcVWCHlf1/oISorwovWQjASWsE+5euUoej4H67au+oLM+DQkvpmSRkeRL?=
+ =?iso-8859-1?Q?ucRquga6dtKMdGUlbdKkesCKUxw5wwaR2iNV1fqUf70DEz7UQIhRS61KBw?=
+ =?iso-8859-1?Q?Rr5ZIC/qD82hSSyWIsa8VrofOgDpk2Om+/3yAyWagmHG68E8Fos/0vh0kW?=
+ =?iso-8859-1?Q?9KulEeyHzDtppn6zJeULcjGhqR9zMqU=3D?=
+Content-Type: multipart/mixed;
+	boundary="_015_CP4P284MB1236C40AD10AFF06232A4E20A1C09CP4P284MB1236BRAP_"
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CPYP284MB0339
+X-TM-Deliver-Signature: 01740B84AA219F1D0C8E95531BFC2D48
+Return-Path: hamilton.damasceno@caixa.gov.br
+X-MS-Exchange-Organization-ExpirationStartTime: 03 May 2022 11:59:25.8682
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ b1c1128b-b970-4009-8694-08da2cfc5eb5
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 9e580355-da22-4a6a-8f27-506a1a53887f:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ BN1NAM02FT026.eop-nam02.prod.protection.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource:
+ BN1NAM02FT026.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+ 25abc417-4c06-4ab7-718c-08da2cfc51f2
+X-MS-Exchange-Organization-ACSExecutionContext: 05/03/2022 11:59:37;05/03/2022
+ 12:00:12;{"SubmissionInfo":{"SubmissionToken":"PFRva2VuIEVuZHBvaW50PSJodHRwczovL1NONFNOQTAxVFAxMjAuZW9wLXNuYTAxLnByb2QucHJvdGVjdGlvbi5vdXRsb29rLmNvbS9zb25hcmFwaS8iIElkPSI4MzEyMTI3ZS1kOGNhLWVjMTEtYmZhMi1lMDA3MWI3Yzk0ZjIiIFJvbGU9IlN1Ym1pdHRlciIgVG9rZW5UeXBlPSJTdWJtaXNzaW9uVG9rZW4iIFNpZ25hdHVyZT0icFVaekxBYkx6cXg5UGtvcHZhMVQvNU9xN1lYdlR1TjdWcGtBUTBDTkg2OWVITG9PcXg2d1FrMFBoRm9sYzhISDlmdWVGdm1pc0l1bU1NMzFhZTY1SUE9PSIgU2lnbmF0dXJlVmVyc2lvbj0iVmVyc2lvbjIxIiAvPg","Identity":"https://nam-sonar.atp.protection.outlook.com/sonarapi?connectionkeepalive=false"}};SC;S;0;05/03/2022
+ 11:59:41;0|0|0|1|0|;
+X-MS-Exchange-Organization-SCL: 5
+X-Forefront-Antispam-Report:
+ CIP:18.208.22.112;CTRY:US;LANG:pt;SCL:5;SRV:;IPV:NLI;SFV:SPM;H:inpost.tmes.trendmicro.com;PTR:inpost.tmes.trendmicro.com;CAT:SPM;SFS:(13230001)(4636009)(7696005)(30864003)(1096003)(33656002)(450100002)(5660300002)(55016003)(8636004)(28085005)(19627235002)(52536014)(6636002)(83380400001)(8676002)(4326008)(11855715004)(54906003)(110136005)(15974865002)(55885007)(336012)(10290500003)(21480400003)(66574015)(86362001)(966005)(166002)(83320400002)(83310400002)(83290400002)(83300400002)(83280400002)(356005)(7596003)(7636003)(26005)(9686003)(921005)(6506007)(53286001)(559874002);DIR:INB;
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2022 11:59:25.8213
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1c1128b-b970-4009-8694-08da2cfc5eb5
+X-MS-Exchange-CrossTenant-Id: 9e580355-da22-4a6a-8f27-506a1a53887f
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN1NAM02FT026.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FR1P215MB1242
+X-MS-Exchange-Transport-EndToEndLatency: 00:01:00.9985491
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5206.024
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(910001)(944506458)(944626604)(920097)(930097)(3100021);RF:JunkEmail;
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?d6zC0Xx3iLX06ArprW2iMxJhVVQ54Gh6t72XMANGhNwFA2SOZULh/BTEzxpw?=
+ =?us-ascii?Q?fyNolkuejzBeEIGaaxCuk4iRSweXgs/dcfmQcCEwQ3XBRVYXMmvo6aFD3Pns?=
+ =?us-ascii?Q?frEQoVvQc+vrvS1FbusNi+4ZXno37ALlzbdW0/LSjKuhPgaeMHbgS46CH7Mt?=
+ =?us-ascii?Q?yOx13hm41b1Rk+2XgE3gQOCosUWAqqyxf0TOLURlUH8yhnntllXZIBxFCHkI?=
+ =?us-ascii?Q?naVnTFLs0o7uJKdzQJLtGcLsqE5LlEiCjPGexKlp1hQ0vYvbsNrRv7BZ5qZq?=
+ =?us-ascii?Q?LeVyuQ4F+90FgpUi411tPEkWn2TuR3FHqo/+WWfBtv0lRs2++TQE2dZGUjTQ?=
+ =?us-ascii?Q?ZfFZuw1z3jjWQsX0UozJTDinqFiWFQ1piGjoITHYqscsYdEGRsqJXRN2somZ?=
+ =?us-ascii?Q?zsDhnmq8RT5AS9Wcc4o2yVHhrqGoJ4IDdABwFGBsUAkRoVYWozTM6yHxH3bM?=
+ =?us-ascii?Q?rDn79PpcB1Y2UTU82/dV6gdUfB+HbClTCjiurZzAw3P8YT2Dg9DrWfKNW98s?=
+ =?us-ascii?Q?DLiYDTlJSj2xpDZ+xwYaD65b7OkBOw69p72tlLYh5HTbkjZugnRbd/ugunex?=
+ =?us-ascii?Q?qDpxwq3u2BKz/WACBqg8MEyT+LSfwg/D73GiuoA0aWdY8RaVOin5ipKELr9l?=
+ =?us-ascii?Q?ylEZSTty4l3yW1RUmxX7BUY5xEocpdoWteLV2UvUu0af/+SmjhXMo1O8CN4t?=
+ =?us-ascii?Q?62Dc1oq3bUl762gPbyW8SSQJBsOwj1RuIxTFzbnUrpTBt39RO5mZc4OhS8Cs?=
+ =?us-ascii?Q?28CBeZSqMnXNiE7WS7cRcXjjoXAIwCdB9/aQ8h1gwgKV+G4gMAOBNSbOGtRc?=
+ =?us-ascii?Q?w/1jXuXdUVs7uyyn6ib3gnFAHONOysNMTKMs+aJOyBLVXw74/RvN/kD4Ma+M?=
+ =?us-ascii?Q?km8G8sSg8ZR0H95oLOyUD6qfyvDCELquk0OWdQ2+ODOfO/gFaXTVdcvtu9bG?=
+ =?us-ascii?Q?CClNf2Pd9TzvmogJ8FLvuBj6QOZFN+xshjbkZMOuvXOawom3VZxGMDBwIu3Z?=
+ =?us-ascii?Q?D242/qTRQ5Etkx77spx772YkxiPoPFziY7EQ7ftm9nDZPdsFudNroyvxdKqh?=
+ =?us-ascii?Q?9mro0IKBmuMLJGtZig46k7eJrI/A+NfW8+NeYLfReGKx73IyWM0Sp9wBZTpT?=
+ =?us-ascii?Q?lnjizEuvMzf+JLsntA2vSKQCyKuvSRYoqynds9xsgkBk9Oe6q/35g1lj+sai?=
+ =?us-ascii?Q?1A89HLzg8CZXrsHpuod0/99uQfKJ8kuBwxxF8xROZ3GNdWzTgr/0diFPCJBW?=
+ =?us-ascii?Q?mrQSrywV5XJ4w1/X7xdu10jxUgf2RDeSpitGKRnt4GbuAQM/MChuGSHYgxeu?=
+ =?us-ascii?Q?wKR318TWSRnedEvgeqbK6Gyayt5woCbqQgYb3on1Y2/zwLbMqM8H0Nv+gvOW?=
+ =?us-ascii?Q?rpH/e7PHD3Ir2BivudAjgbj5QnVpnslTPQbQE/T5pPjD1squTC9nVs/vej+M?=
+ =?us-ascii?Q?I2dgls/Q0oclyWjr/OfVlLxau3VslY4UFOIxCw2Mku1wL3wNU42f1p44UvJS?=
+ =?us-ascii?Q?rgvvmlNwTwQzG7/McYadHNUUMQcOvuZRnqisWJ7D70kSWbfNmXfG1Eg7r2xQ?=
+ =?us-ascii?Q?j55nxG3rqQka7Mrx/cU+Q7gFUB38ggPlHtgUU4w0PiorVjS1UoVD54InQspa?=
+ =?us-ascii?Q?SN+6Riti1VywjDWzzdRA/GbApWlkleNc5zuoj/YhdYs5tVkwaRsWv131tvEh?=
+ =?us-ascii?Q?Jfq3Z0Cs2gr6JD+Gfp/okZ1fbxRGFI6QUw6TIbenaSdBZVeuwMW+GohDTcVH?=
+ =?us-ascii?Q?9iqTDs2mJSH/tJe9fp75tH7VrfkaDS7U4EooX30wvx9/bZGSDcW5+tPJ8wTt?=
+ =?us-ascii?Q?xddm7GZI7KNT/bd1Osj9w6e+Mbstes3J3nFwCDCd4j6egcCniUuHGG+qandA?=
+ =?us-ascii?Q?SyLIKVbxFItayw8cspbIOWx3qdKShjJZb92bb2IgzhwGb6Y9vjbcUkMQWfs1?=
+ =?us-ascii?Q?uTNOgbCoGpkf9q6rOMWz0AvOaMRqlvKfkedAvQ+iU0OZ2Fo/Dn9jeBSHkZFh?=
+ =?us-ascii?Q?St0D3pFksBcYH9XYjVdOxhFTIJXT7J0tsDE/0U6pVi7jetFSLDjuuvDMcMtt?=
+ =?us-ascii?Q?p3ki3E9qDIl8GGMGGpW7PJ3h1V65HY9Owjkspnj64LFrlq+3voELq2eoC6jH?=
+ =?us-ascii?Q?aUfG1/qqNH01g35CeORKTbV8qgTkC8IPKrva3/vdz1wRDvEhRjOAx7HUeCpC?=
+ =?us-ascii?Q?FL+hiF3+JTxIr5DgBAzW/OAvCCrdWqFMElsLeLTf9tBPr9QN+eO3drKhDB0M?=
+ =?us-ascii?Q?0pNgpeI4heeqNriiR4/bfiHPLjjQQ3bxqQINasU9hX9YczFQ7ykkbOKMYdLa?=
+ =?us-ascii?Q?EvIgSN+/Yl0p77wF+fwTA5s5XVqs9LJ2wvN9bKl0/GjwhNBqZq0qO4XAIniQ?=
+ =?us-ascii?Q?pvRbUUI=3D?=
