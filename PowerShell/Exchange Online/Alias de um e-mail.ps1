@@ -1,1 +1,1 @@
-﻿Get-Mailbox -Identity rodrigo.galvao@M365B882413.onmicrosoft.com | select -Expand emailaddresses alias
+﻿Get-Mailbox -Identity email@dominio.com | select -Expand emailaddresses alias
