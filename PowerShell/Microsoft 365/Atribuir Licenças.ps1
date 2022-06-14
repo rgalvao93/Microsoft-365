@@ -8,4 +8,4 @@ Set-MsolUserLicense -UserPrincipalName usuario.teste@dominio.com -AddLicenses "N
 Set-MsolUser -UserPrincipalName usuario.teste@dominio.com -UsageLocation BR
 
 #consultar se o atributo foi preenchido
-Get-MsolUser -SearchString rodrigo.galvao@M365B882413.onmicrosoft.com | fl
+Get-MsolUser -SearchString email@dominio.com | fl
