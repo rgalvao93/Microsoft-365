@@ -1,1 +1,0 @@
-﻿Get-CsTeamsMessagingPolicy -Identity Global
