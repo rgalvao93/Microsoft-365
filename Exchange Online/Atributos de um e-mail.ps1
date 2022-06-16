@@ -6,4 +6,4 @@ Set-executionpolicy unrestricted -Force
 Install-Module ExchangeOnlineManagement -Force
     #para forçar a execução de políticas e instalação dos módulos
 Connect-ExchangeOnline
-Get-Mailbox -Identity email@dominio.com | fl
+Get-Mailbox -Identity email@dominio.com | Format-List

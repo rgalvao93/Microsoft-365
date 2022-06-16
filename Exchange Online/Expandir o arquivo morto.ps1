@@ -5,5 +5,5 @@ Import-Module ExchangeOnlineManagement
 Set-executionpolicy unrestricted -Force
 Install-Module ExchangeOnlineManagement -Force
     #para forçar a execução de políticas e instalação dos módulos
-Get-Mailbox "email usuario" |FL ArchiveQuota,ArchiveWarningQuota,AutoExpandingArchiveEnabled
+Get-Mailbox "email usuario" |Format-List ArchiveQuota,ArchiveWarningQuota,AutoExpandingArchiveEnabled
 Enable-Mailbox email "usuario" -AutoExpandingArchive
