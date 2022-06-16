@@ -1,4 +1,5 @@
-﻿Install-Module MSOnline
+﻿Set-executionpolicy unrestricted -Force
+Install-Module MSOnline
 Connect-MsolService
 Set-MsolUserLicense -UserPrincipalName usuario.teste@dominio.com -AddLicenses "NomeDaLicença"
     #se o campo -UsageLocation não estiver preenchido, a licença não é atribuída

@@ -1,7 +1,0 @@
-Set-ExecutionPolicy Unrestricted -forces
-Set-ExecutionPolicy RemoteSigned
-Enable-PSRemoting
-Install-Module -Name ExchangeOnlineManagement
-Import-Module ExchangeOnlineManagement
-Connect-ExchangeOnline
-Enable-OrganizationCustomization
