@@ -1,6 +1,6 @@
 # Exchange Online
 
-## Links de documentações da Microsoft
+## Links para documentações da Microsoft
 
 * [Executar uma migração do Google Workspace (anteriormente G Suite) para Microsoft 365 ou Office 365](https://docs.microsoft.com/pt-br/exchange/mailbox-migration/perform-g-suite-migration)
 
