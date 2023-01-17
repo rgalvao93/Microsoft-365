@@ -9,3 +9,5 @@
 * [Limites do Exchange Online](https://docs.microsoft.com/pt-br/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits)
 
 * [Recuperar mensagens excluídas na caixa de correio de um usuário no Exchange Online](https://docs.microsoft.com/pt-BR/exchange/recipients-in-exchange-online/manage-user-mailboxes/recover-deleted-messages)
+
+* [Substituição da Autenticação básica no Exchange Online](https://learn.microsoft.com/pt-br/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online)
