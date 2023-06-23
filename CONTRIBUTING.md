@@ -15,8 +15,4 @@ Agradecemos seu interesse em contribuir para o Repositório Microsoft 365. Aqui 
 - Certifique-se de testar suas alterações antes de criar o Pull Request.
 - Se o seu Pull Request estiver relacionado a uma issue existente, mencione-o na descrição.
 
-## Código de Conduta
-
-Este repositório segue o Código de Conduta da Comunidade Microsoft. Ao contribuir, você concorda em seguir essas diretrizes. Para mais detalhes, consulte o arquivo [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
-
 Agradecemos sua contribuição para tornar o Repositório Microsoft 365 melhor e mais útil para todos. Seu apoio é muito apreciado!
